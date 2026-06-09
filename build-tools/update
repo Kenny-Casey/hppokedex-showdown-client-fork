@@ -79,7 +79,7 @@ process.stdout.write("Compiling TS files... ");
 const compileStartTime = process.hrtime();
 let compiledFiles = 0;
 
-// Babel can't find babelrc if we try to compile stuff in caches/pokemon-showdown/ fsr
+// Babel can't find babelrc if we try to compile stuff in caches/hppokedex-showdown-fork/ fsr
 // eslint-disable-next-line no-eval
 const compileOpts = Object.assign(eval('(' + fs.readFileSync('.babelrc') + ')'), {
 	babelrc: false,
@@ -89,7 +89,8 @@ const compileOpts = Object.assign(eval('(' + fs.readFileSync('.babelrc') + ')'),
 if (process.argv[2] === 'full') {
 	delete compileOpts.ignore;
 	compiler.compileToDir(
-		['caches/pokemon-showdown/server/chat-formatter.ts', 'caches/pokemon-showdown/sim/teams.ts'],
+		//HPPokedex change
+		['caches/hppokedex-showdown-fork/server/chat-formatter.ts', 'caches/hppokedex-showdown-fork/sim/teams.ts'],
 		'play.pokemonshowdown.com/js/server/',
 		compileOpts
 	);
@@ -110,6 +111,7 @@ compiledFiles += compiler.compileToDir(`teams.pokemonshowdown.com/src`, `teams.p
 try {
 	fs.statSync('play.pokemonshowdown.com/data/text.js');
 	// text.js exists, we can compile battledata
+	//HPPokedex change
 	compiledFiles += compiler.compileToFile(
 		[
 			'play.pokemonshowdown.com/src/battle-dex.ts',
@@ -117,7 +119,7 @@ try {
 			'play.pokemonshowdown.com/src/battle-dex-data.ts',
 			'play.pokemonshowdown.com/src/battle-log.ts',
 			'play.pokemonshowdown.com/src/battle-log-misc.js',
-			'caches/pokemon-showdown/server/chat-formatter.ts',
+			'caches/hppokedex-showdown-fork/server/chat-formatter.ts',
 			'play.pokemonshowdown.com/data/text.js',
 			'play.pokemonshowdown.com/data/text-afd.js',
 			'play.pokemonshowdown.com/src/battle-text-parser.ts',

@@ -23,11 +23,13 @@ Object.assign(globalThis, {
 	toID: str => ("" + str).toLowerCase().replace(/[^a-z0-9]/ig, ''),
 });
 
-const { Chat } = require('../caches/pokemon-showdown/dist/server/chat');
+//Hppokedex change
+const { Chat } = require('../caches/hppokedex-showdown-fork/dist/server/chat');
 
 // yes, these have to be done separately, yes it sucks
+//Hppokedex change
 Object.assign(globalThis, {
-	Tournaments: require('../caches/pokemon-showdown/dist/server/tournaments'),
+	Tournaments: require('../caches/hppokedex-showdown-fork/dist/server/tournaments'),
 	Chat,
 	Dex: { includeData: noop },
 });

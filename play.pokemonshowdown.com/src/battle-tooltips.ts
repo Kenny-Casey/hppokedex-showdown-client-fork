@@ -713,6 +713,10 @@ export class BattleTooltips {
 				if (move.id === 'grassyglide' && this.battle.hasPseudoWeather('Grassy Terrain')) {
 					text += 'Usually moves first <em>(priority +1)</em>.</p><p>';
 				}
+				//Hppokedex changes
+				if (move.id === 'shortcircuit' && this.battle.hasPseudoWeather('Electric Terrain')) {
+					text += 'Usually moves first <em>(priority +1)</em>.</p><p>';
+				}
 			}
 
 			text += '' + (move.desc || move.shortDesc || '') + '</p>';
@@ -1225,6 +1229,14 @@ export class BattleTooltips {
 					if (ability === 'swiftswim') {
 						speedModifiers.push(2);
 					}
+					///Hppokedex changes
+					if(ability=="sunkencoralcrown"){
+						stats.atk = Math.floor(stats.atk * 1.2);
+						stats.def = Math.floor(stats.def * 1.2);
+						stats.spa = Math.floor(stats.spa * 1.2);
+						stats.spd = Math.floor(stats.spd * 1.2);
+						stats.spe = Math.floor(stats.spe * 1.2);
+					}
 				}
 			}
 		}
@@ -1331,6 +1343,23 @@ export class BattleTooltips {
 			if (ability !== 'beadsofruin') {
 				stats.spd = Math.floor(stats.spd * 0.75);
 			}
+		}
+
+		//Hppokedex changes
+		if (ability === 'freebird' && !item) {
+			speedModifiers.push(1.5);
+		}
+		if (ability === 'virtueoffortitude' && serverPokemon.hp <= serverPokemon.maxhp / 2) {
+			stats.def = Math.floor(stats.def * 1.5);
+		}
+		if (ability === 'virtueofjustice' && serverPokemon.hp <= serverPokemon.maxhp / 2) {
+			stats.atk = Math.floor(stats.atk * 1.5);
+		}
+		if (ability === 'virtueofprudence' && serverPokemon.hp <= serverPokemon.maxhp / 2) {
+			stats.spa = Math.floor(stats.spa * 1.5);
+		}
+		if (ability === 'virtueoftemperance' && serverPokemon.hp <= serverPokemon.maxhp / 2) {
+			stats.spd = Math.floor(stats.spd * 1.5);
 		}
 
 		// SSB
@@ -1763,6 +1792,13 @@ export class BattleTooltips {
 					if (value.abilityModify(0, 'Galvanize')) moveType = 'Electric';
 					if (value.abilityModify(0, 'Pixilate')) moveType = 'Fairy';
 					if (value.abilityModify(0, 'Refrigerate')) moveType = 'Ice';
+					//Hppokedex changes
+					if (value.abilityModify(0, 'Pyrotechnic')) moveType = 'Fire';
+					if (value.abilityModify(0, 'Eye of Malice')) moveType = 'Dark';
+				}
+				if(moveType === 'Psychic'){
+					//Hppokedex changes
+					if (value.abilityModify(0, 'Eye of Malice')) moveType = 'Dark';
 				}
 				if (value.abilityModify(0, 'Normalize')) moveType = 'Normal';
 			}
@@ -2140,7 +2176,12 @@ export class BattleTooltips {
 			accuracyModifiers.push(5325);
 			value.abilityModify(1.3, "Compound Eyes");
 		}
-
+		//Hppokedex changes
+		else if (value.tryAbility('Holy Eyes')) {
+			accuracyModifiers.push(5325);
+			value.abilityModify(1.3, "Holy Eyes");
+		}
+		
 		if (value.tryItem('Wide Lens')) {
 			accuracyModifiers.push(4505);
 			value.itemModify(1.1, "Wide Lens");
@@ -2248,6 +2289,20 @@ export class BattleTooltips {
 		if (move.id === 'brine' && target && target.hp * 2 <= target.maxhp) {
 			value.modify(2, 'Brine + target below half HP');
 		}
+		//Hppokedex changes
+		if (move.id === 'scuttledship' && target ) {
+			let multiplier=64
+			let ratios=2
+			let ratio = target.hp * multiplier / target.maxhp;
+			if (ratio < ratios){
+				value.modify(1.5, 'Scuttled Ship + target at 1 HP');
+			}
+			else if(target.hp * 2 <= target.maxhp&&ratio>ratios){
+				value.modify(1.25, 'Scuttled Ship + target below half HP');
+			}
+			
+		}
+
 		if (move.id === 'eruption' || move.id === 'waterspout' || move.id === 'dragonenergy') {
 			value.set(Math.floor(150 * pokemon.hp / pokemon.maxhp) || 1);
 		}
@@ -2487,6 +2542,8 @@ export class BattleTooltips {
 				value.abilityModify(1.2, "Galvanize");
 				value.abilityModify(this.battle.gen > 6 ? 1.2 : 1.3, "Pixilate");
 				value.abilityModify(this.battle.gen > 6 ? 1.2 : 1.3, "Refrigerate");
+				//Hppokedex changes
+				value.abilityModify(1.2, "Pyrotechnic");
 			}
 			if (this.battle.gen > 6) {
 				value.abilityModify(1.2, "Normalize");

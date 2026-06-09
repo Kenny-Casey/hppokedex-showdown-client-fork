@@ -236,6 +236,11 @@ export const Dex = new class implements ModdedDex {
 		return `${prefix}//${window.Config ? Config.routes.client : 'play.pokemonshowdown.com'}/`;
 	})();
 
+	hppokedexPrefix=(()=>{
+		//HPPokedex changes
+		return 'http://localhost:8080/play.pokemonshowdown.com/'
+	})();
+
 	fxPrefix = (() => {
 		const protocol = (window.document?.location?.protocol !== 'http:') ? 'https:' : '';
 		return `${protocol}//${window.Config ? Config.routes.client : 'play.pokemonshowdown.com'}/fx/`;
@@ -283,6 +288,10 @@ export const Dex = new class implements ModdedDex {
 		}
 		if (dex.gen === 9 && formatid.includes('champions')) {
 			dex = Dex.mod('champions' as ID);
+		}
+		//Hppokedex changes
+		if(dex.gen === 9 && formatid.includes('hppokedex')){
+			dex = Dex.mod('gen9hppokedex' as ID);
 		}
 		return dex;
 	}
@@ -667,7 +676,12 @@ export const Dex = new class implements ModdedDex {
 		}
 
 		if (options.shiny && mechanicsGen > 1) dir += '-shiny';
-
+		//Hppokedex changes
+		if(species.isNonstandard==="HPPokedex"){
+			dir='hppokedex'+dir;
+			spriteData.url=Dex.hppokedexPrefix+ 'sprites/hppokedex-sprites/'+dir+'/'+name+'.png';
+			return spriteData;
+		}
 		// April Fool's 2014
 		if (Dex.afdMode || options.afd) {
 			// Explicit false check above means AFD will be off if the user disables it - no matter what
@@ -813,7 +827,13 @@ export const Dex = new class implements ModdedDex {
 		let left = (num % 12) * 40;
 		let fainted = ((pokemon as Pokemon | ServerPokemon)?.fainted ?
 			`;opacity:.3;filter:grayscale(100%) brightness(.5)` : ``);
-		return `background:transparent url(${Dex.resourcePrefix}sprites/pokemonicons-sheet.png?v22) no-repeat scroll -${left}px -${top}px${fainted}`;
+		//Hppokedex changes
+		if(num>=2000){
+			return `background:transparent url(${Dex.hppokedexPrefix}sprites/hppokedex-sprites/icons/${id}.png) no-repeat scroll ${fainted}`
+		}
+		else{
+			return `background:transparent url(${Dex.resourcePrefix}sprites/pokemonicons-sheet.png?v19) no-repeat scroll -${left}px -${top}px${fainted}`;
+		}
 	}
 
 	getTeambuilderSpriteData(pokemon: any, dex: ModdedDex = Dex): TeambuilderSpriteData {
@@ -846,6 +866,13 @@ export const Dex = new class implements ModdedDex {
 			y: -3,
 		};
 		if (pokemon.shiny) spriteData.shiny = true;
+		//Hppokedex changes
+		if(species.isNonstandard==='HPPokedex'){
+			spriteData.spriteDir = 'sprites/hppokedex-sprites/hppokedex';
+			spriteData.x = 10;
+			spriteData.y = 5;
+			return spriteData;
+		}
 		if (dex.modid === 'gen7letsgo') gen = 8;
 		if (Dex.prefs('nopastgens')) gen = 9;
 		if (Dex.prefs('bwgfx') && gen > 5) gen = 5;
@@ -896,7 +923,15 @@ export const Dex = new class implements ModdedDex {
 		const data = this.getTeambuilderSpriteData(pokemon, dex);
 		const shiny = (data.shiny ? '-shiny' : '');
 		const resize = (data.h ? `background-size:${data.h}px` : '');
-		return `background-image:url(${Dex.resourcePrefix}${data.spriteDir}${shiny}/${data.spriteid}.png);background-position:${data.x + xOffset}px ${data.y + yOffset}px;background-repeat:no-repeat;${resize}`;
+		let id = toID(pokemon.species || pokemon);
+		let species = Dex.species.get(id);
+		//Hppokedex changes
+		if(species.isNonstandard==='HPPokedex'){
+			return `background-image:url(${Dex.hppokedexPrefix}${data.spriteDir}${shiny}/${data.spriteid}.png);background-position:${data.x + xOffset}px ${data.y + yOffset}px;background-repeat:no-repeat;${resize}`;	
+		}
+		else{
+			return `background-image:url(${Dex.resourcePrefix}${data.spriteDir}${shiny}/${data.spriteid}.png);background-position:${data.x + xOffset}px ${data.y + yOffset}px;background-repeat:no-repeat;${resize}`;
+		}
 	}
 
 	getItemIcon(item: any) {
@@ -906,6 +941,10 @@ export const Dex = new class implements ModdedDex {
 
 		let top = Math.floor(num / 16) * 24;
 		let left = (num % 16) * 24;
+		//Hppokedex changes
+		if(num<-999){
+			return `background:transparent url(${Dex.hppokedexPrefix}sprites/hppokedex-sprites/icons/${item.id}.png) no-repeat scroll`
+		}
 		return `background:transparent url(${Dex.resourcePrefix}sprites/itemicons-sheet.png?v1) no-repeat scroll -${left}px -${top}px`;
 	}
 
