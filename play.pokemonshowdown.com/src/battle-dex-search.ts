@@ -1422,6 +1422,9 @@ class BattleItemSearch extends BattleTypedSearch<'item'> {
 			table = table[`gen${this.dex.gen}metronome`];
 		} else if (this.formatType === 'champions') {
 			table = table[`champions`];
+		} //HPPokedex change
+		  else if (this.formatType?.startsWith('hppokedex')){
+			table = table['gen9' + this.formatType];
 		} else if (this.dex.gen < 9) {
 			table = table[`gen${this.dex.gen}`];
 		}

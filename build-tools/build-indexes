@@ -557,7 +557,7 @@ process.stdout.write("Building `data/teambuilder-tables.js`... ");
 			BattleTeambuilderTable['gen9hppokedex'] = {};
 			BattleTeambuilderTable['gen9hppokedex'].learnsets = {};
 			BattleTeambuilderTable['gen9hppokedex'].tiers = tiers;
-			// BattleTeambuilderTable['gen9hppokedex'].items = items;
+			BattleTeambuilderTable['gen9hppokedex'].items = items;
 			BattleTeambuilderTable['gen9hppokedex'].overrideTier = overrideTier;
 			// BattleTeambuilderTable['gen9hppokedex'].monotypeBans = monotypeBans;
 			BattleTeambuilderTable['gen9hppokedex'].formatSlices = formatSlices; 
