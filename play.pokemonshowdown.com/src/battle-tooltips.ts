@@ -1881,6 +1881,8 @@ export class BattleTooltips {
 		if (attackType === 'Water' && abilityid === 'waterabsorb') return 0;
 		if (attackType === 'Ground' && abilityid === 'eartheater') return 0;
 		if (attackType === 'Fire' && abilityid === 'wellbakedbody') return 0;
+		//HPPokedex change
+		if (attackType === 'Fire' && abilityid === 'thermotherapy') return 0;
 
 		if (attackType === 'Fire' && abilityid === 'primordialsea' && !strict) return 0;
 		if (attackType === 'Water' && abilityid === 'desolateland' && !strict) return 0;

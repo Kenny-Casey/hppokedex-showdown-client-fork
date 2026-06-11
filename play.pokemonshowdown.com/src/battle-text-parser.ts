@@ -194,7 +194,8 @@ export class BattleTextParser {
 
 		case '-heal': {
 			const id = BattleTextParser.effectId(kwArgs.from);
-			if (['dryskin', 'eartheater', 'voltabsorb', 'waterabsorb'].includes(id)) kwArgs.of = '';
+			//HPPokedex change
+			if (['dryskin', 'eartheater', 'voltabsorb', 'waterabsorb', 'thermotherapy'].includes(id)) kwArgs.of = '';
 			break;
 		}
 
