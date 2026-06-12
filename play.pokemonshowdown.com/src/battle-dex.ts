@@ -238,7 +238,7 @@ export const Dex = new class implements ModdedDex {
 
 	hppokedexPrefix=(()=>{
 		//HPPokedex changes
-		return 'play.pokemonshowdown.com/'
+		return 'https://localhost:8080/play.pokemonshowdown.com/'
 	})();
 
 	fxPrefix = (() => {
