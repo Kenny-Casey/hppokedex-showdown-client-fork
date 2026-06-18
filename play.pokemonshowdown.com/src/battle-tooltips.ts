@@ -1362,6 +1362,10 @@ export class BattleTooltips {
 			stats.spd = Math.floor(stats.spd * 1.5);
 		}
 
+		if (item === 'eviolite' && this.battle.tier.includes('HPPokedex') && this.battle.dex.species.get(serverPokemon.speciesForme).id === 'grapploct') {
+			stats.def = Math.floor(stats.def * 1.5);
+			stats.spd = Math.floor(stats.spd * 1.5);
+		}
 		// SSB
 		if (this.battle.tier.includes('Super Staff Bros')) {
 			if (pokemon.name === 'Felucia') {
