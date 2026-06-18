@@ -1618,6 +1618,9 @@ class BattleMoveSearch extends BattleTypedSearch<'move'> {
 			return dex.gen > 5;
 		case 'grassyglide':
 			return abilityid === 'grassysurge';
+		//HPPokedex Change
+		case 'shortcircuit':
+			return abilityid === 'electricsurge';
 		case 'gyroball':
 			return species.baseStats.spe <= 60;
 		case 'headbutt':
