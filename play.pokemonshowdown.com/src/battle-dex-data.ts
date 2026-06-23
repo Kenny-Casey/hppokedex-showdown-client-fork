@@ -745,6 +745,7 @@ export const BattlePokemonIconIndexes: { [id: string]: number } = {
 	tanookie: 2000 + 62,
 	tanookraze: 2000 + 63,
 	ursick: 2000 + 64,
+	clodsiremega: 2000 + 65,
 };
 
 export const BattlePokemonIconIndexesLeft: { [id: string]: number } = {
