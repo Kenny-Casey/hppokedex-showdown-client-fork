@@ -542,7 +542,7 @@ export class Pokemon implements PokemonDetails, PokemonHealth {
 		if (item === 'ironball') {
 			return true;
 		}
-		if (ability === 'levitate') {
+		if (ability === 'levitate' || ability === 'eelevate' || ability == 'airhead'){
 			return false;
 		}
 		if (this.volatiles['magnetrise'] || this.volatiles['telekinesis']) {
