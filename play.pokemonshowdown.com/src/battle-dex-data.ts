@@ -746,11 +746,15 @@ export const BattlePokemonIconIndexes: { [id: string]: number } = {
 	tanookraze: 2000 + 63,
 	ursick: 2000 + 64,
 	clodsiremega: 2000 + 65,
+	clodsiremegapopped: 2000 + 65,
 	cincchiller: 2000 + 66, 
 	scortoat: 2000 + 67,
 	pricktoad: 2000 + 68,
 	moguaro: 2000 + 69,
 	tropecetary: 2000 + 70,
+	stuttlesnek: 2000 + 71,
+	lyrikhiss: 2000 + 72,
+	terracluse: 2000 + 73,
 };
 
 export const BattlePokemonIconIndexesLeft: { [id: string]: number } = {
