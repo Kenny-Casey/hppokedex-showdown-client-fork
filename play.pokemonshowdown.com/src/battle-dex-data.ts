@@ -751,6 +751,9 @@ export const BattlePokemonIconIndexes: { [id: string]: number } = {
 	pricktoad: 2000 + 68,
 	moguaro: 2000 + 69,
 	tropecetary: 2000 + 70,
+	stuttlesnek: 2000 + 71,
+	lyrikhiss: 2000 + 72,
+	terracluse: 2000 + 73,
 };
 
 export const BattlePokemonIconIndexesLeft: { [id: string]: number } = {
