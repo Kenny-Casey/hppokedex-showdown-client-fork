@@ -755,6 +755,10 @@ export const BattlePokemonIconIndexes: { [id: string]: number } = {
 	stuttlesnek: 2000 + 71,
 	lyrikhiss: 2000 + 72,
 	terracluse: 2000 + 73,
+	komalaheroguea: 2000 + 74,
+	nomala: 2000 + 75,
+	sharbine: 2000 + 76,
+	krushodo: 2000 + 77,
 };
 
 export const BattlePokemonIconIndexesLeft: { [id: string]: number } = {
