@@ -1803,6 +1803,7 @@ export class BattleTooltips {
 					//Hppokedex changes
 					if (value.abilityModify(0, 'Pyrotechnic')) moveType = 'Fire';
 					if (value.abilityModify(0, 'Eye of Malice')) moveType = 'Dark';
+					if (value.abilityModify(0, 'Phantasmalate')) moveType = 'Ghost';
 				}
 				if(moveType === 'Psychic'){
 					//Hppokedex changes
@@ -2554,6 +2555,7 @@ export class BattleTooltips {
 				value.abilityModify(this.battle.gen > 6 ? 1.2 : 1.3, "Refrigerate");
 				//Hppokedex changes
 				value.abilityModify(1.2, "Pyrotechnic");
+				value.abilityModify(1.2, "Phantasmalate");
 			}
 			if (this.battle.gen > 6) {
 				value.abilityModify(1.2, "Normalize");
