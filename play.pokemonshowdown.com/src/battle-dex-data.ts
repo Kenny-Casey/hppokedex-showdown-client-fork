@@ -759,6 +759,26 @@ export const BattlePokemonIconIndexes: { [id: string]: number } = {
 	nomala: 2000 + 75,
 	sharbine: 2000 + 76,
 	krushodo: 2000 + 77,
+	wisce: 2000 + 78,
+	danahan: 2000 + 79,
+	wormir: 2000 + 80,
+	chrystalis: 2000 + 81,
+	saintiglaz: 2000 + 82,
+	khullchis: 2000 + 83,
+	hypsyriff: 2000 + 84,
+	bubbafrog: 2000 + 85,
+	anemester: 2000 + 86,
+	anenite: 2000 + 87,
+	anemizard: 2000 + 88,
+	sloolooth: 2000 + 89,
+	petrioth: 2000 + 90,
+	akasloth: 2000 + 91,
+	shuppetheroguea: 2000 + 92,
+	strawnette: 2000 + 93,
+	figgipiggi: 2000 + 94,
+	shrubrute: 2000 + 95,
+	arboaracious: 2000 + 96,
+
 };
 
 export const BattlePokemonIconIndexesLeft: { [id: string]: number } = {
