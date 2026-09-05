@@ -46,7 +46,7 @@ requireScript('https://play.pokemonshowdown.com/js/battle-sound.js');
 requireScript('https://hppokemonshowdown.org/js/battledata.js?a7');
 requireScript('https://play.pokemonshowdown.com/data/pokedex-mini.js?a7');
 requireScript('https://play.pokemonshowdown.com/data/pokedex-mini-bw.js?a7');
-requireScript('https://play.pokemonshowdown.com/data/graphics.js?a7');
+requireScript('https://hppokemonshowdown.org/data/graphics.js?a7');
 requireScript('https://hppokemonshowdown.org/data/pokedex.js?a7');
 requireScript('https://hppokemonshowdown.org/data/moves.js?a7');
 requireScript('https://hppokemonshowdown.org/data/abilities.js?a7');
