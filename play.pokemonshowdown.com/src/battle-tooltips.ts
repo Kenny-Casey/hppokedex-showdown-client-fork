@@ -2192,7 +2192,11 @@ export class BattleTooltips {
 			accuracyModifiers.push(5325);
 			value.abilityModify(1.3, "Holy Eyes");
 		}
-		
+		else if (value.tryAbility('Cloud Spewer') && move.type === 'Flying') {
+			accuracyModifiers.push(5325);
+			value.abilityModify(1.3, "Cloud Spewer");
+		}
+
 		if (value.tryItem('Wide Lens')) {
 			accuracyModifiers.push(4505);
 			value.itemModify(1.1, "Wide Lens");
