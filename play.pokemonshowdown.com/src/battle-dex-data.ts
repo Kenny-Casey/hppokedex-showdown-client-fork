@@ -778,6 +778,9 @@ export const BattlePokemonIconIndexes: { [id: string]: number } = {
 	figgipiggi: 2000 + 94,
 	shrubrute: 2000 + 95,
 	arboaracious: 2000 + 96,
+	crimrax: 2000 + 97,
+	wermiflame: 2000 + 98,
+	infernion: 2000 + 99,
 
 };
 
